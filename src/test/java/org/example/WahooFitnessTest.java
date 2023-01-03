@@ -39,11 +39,12 @@ class WahooFitnessTest {
   }
 */
     @org.junit.jupiter.api.Test
-    void fullTestWahooFitness() {
+    void fullTestWahooFitness() throws InterruptedException {
         WahooFitnessHomePage homePage = new WahooFitnessHomePage(driver);
         homePage.clickOnAllProducts();
         WahooFitnessAllProductsPage allProducts = new WahooFitnessAllProductsPage(driver);
         allProducts.selectRandomProduct();
+        allProducts.addToCart();
         //wProductsPage = new WahooProductsPage(driver);
 
 
