@@ -42,6 +42,7 @@ class WahooFitnessTest {
     void fullTestWahooFitness() throws InterruptedException {
         WahooFitnessHomePage homePage = new WahooFitnessHomePage(driver);
         homePage.clickOnAllProducts();
+
         WahooFitnessAllProductsPage allProducts = new WahooFitnessAllProductsPage(driver);
         allProducts.selectRandomProduct();
         allProducts.addToCart();
@@ -54,5 +55,19 @@ class WahooFitnessTest {
         allProducts.removeProduct();
         allProducts.checkOut();
 
+        WahooFitnessCheckOutPage checkOutPage = new WahooFitnessCheckOutPage(driver);
+        checkOutPage.placeOrder();
+        if(! checkOutPage.isErrorMessageShown()) {
+            System.out.println("Error message should have appeared");
+        }
+        checkOutPage.selectExpressShipping();
+        checkOutPage.updateProductQty();
+        checkOutPage.enterCustomerDetails();
+        checkOutPage.enterPaymentDetails();
+        checkOutPage.placeOrder();
+
+        if(! checkOutPage.isCardDeclined()) {
+            System.out.println("Card should have been declined");
+        }
     }
 }
