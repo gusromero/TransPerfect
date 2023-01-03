@@ -6,7 +6,8 @@ https://eu.wahoofitness.com/
 Steps:
 1. Load https://eu.wahoofitness.com/ and open product category.
 
-NOTE: "Product category" is not available anymore, the test opens the "All Products" page instead.
+NOTE1: "Product category" is not available anymore, the test opens the "All Products" page instead.
+NOTE2: The "accept cookies" banner appears and messes with the clicking on the "All Products" page, depending on the configs
 
 2. Select random product and add it to the cart (Verify that side-bar cart appears with added product).
                 - random product means: create product collection and select the one with random index

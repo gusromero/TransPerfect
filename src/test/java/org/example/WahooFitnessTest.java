@@ -5,10 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class WahooFitnessTest {
 
@@ -32,12 +30,6 @@ class WahooFitnessTest {
         driver.close();
     }
 
- /*   @org.junit.jupiter.api.Test
-    void add() {
-        WahooFitness sut = new WahooFitness();
-        assert(sut.add(3,3) == 6);
-  }
-*/
     @org.junit.jupiter.api.Test
     void fullTestWahooFitness() throws InterruptedException {
         WahooFitnessHomePage homePage = new WahooFitnessHomePage(driver);
@@ -46,7 +38,7 @@ class WahooFitnessTest {
         WahooFitnessAllProductsPage allProducts = new WahooFitnessAllProductsPage(driver);
         allProducts.selectRandomProduct();
         allProducts.addToCart();
-        if(allProducts.isMiniCartShown()) {
+        if (allProducts.isMiniCartShown()) {
             allProducts.closeMiniCart();
         }
         allProducts.backToAllProductsPage();
@@ -57,7 +49,7 @@ class WahooFitnessTest {
 
         WahooFitnessCheckOutPage checkOutPage = new WahooFitnessCheckOutPage(driver);
         checkOutPage.placeOrder();
-        if(! checkOutPage.isErrorMessageShown()) {
+        if (!checkOutPage.isErrorMessageShown()) {
             System.out.println("Error message should have appeared");
         }
         checkOutPage.selectExpressShipping();
@@ -66,7 +58,7 @@ class WahooFitnessTest {
         checkOutPage.enterPaymentDetails();
         checkOutPage.placeOrder();
 
-        if(! checkOutPage.isCardDeclined()) {
+        if (!checkOutPage.isCardDeclined()) {
             System.out.println("Card should have been declined");
         }
     }
