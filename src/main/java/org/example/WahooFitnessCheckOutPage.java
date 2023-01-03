@@ -9,9 +9,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class WahooFitnessCheckOutPage {
-
-    private WebDriver driver;
+public class WahooFitnessCheckOutPage extends WahooFitnessPage {
 
     @FindBy(how=How.XPATH, using="//td[contains(text(),'Express Shipping')]")
     private WebElement expressShipping;
@@ -49,20 +47,19 @@ public class WahooFitnessCheckOutPage {
 
 
     public WahooFitnessCheckOutPage(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public void selectExpressShipping() throws InterruptedException{
         expressShipping.click();
-        Thread.sleep(3000);
+        Thread.sleep(timeout);
     }
 
     public void updateProductQty() throws InterruptedException{
         quantity.sendKeys("2");
         quantity.sendKeys(Keys.TAB);
         updateButton.click();
-        Thread.sleep(3000);
+        Thread.sleep(timeout);
     }
 
     public void enterCustomerDetails() throws InterruptedException{
@@ -76,7 +73,7 @@ public class WahooFitnessCheckOutPage {
         zipCode.sendKeys("08940");
         phoneNumber.sendKeys("5555555555");
         phoneNumber.sendKeys(Keys.TAB);
-        Thread.sleep(3000);
+        Thread.sleep(timeout);
     }
 
     public void selectFromDropDown(WebElement dropDownEle, String value){

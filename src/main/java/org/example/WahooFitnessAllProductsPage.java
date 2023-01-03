@@ -11,8 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 import java.util.Random;
 
-public class WahooFitnessAllProductsPage {
-    private WebDriver driver;
+public class WahooFitnessAllProductsPage extends WahooFitnessPage {
 
     @FindBy(how=How.XPATH, using="//ul[@class='products-grid']//li/div[2]/p/a")
     private List<WebElement> allProductsList;
@@ -48,8 +47,7 @@ public class WahooFitnessAllProductsPage {
     private WebElement checkOutButton;
 
     public WahooFitnessAllProductsPage(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public void selectRandomProduct() throws InterruptedException {
@@ -57,7 +55,7 @@ public class WahooFitnessAllProductsPage {
         WebElement selectedProduct = allProductsList.get(randomInt);
         System.out.println("Selected: " + selectedProduct.getText() );
         selectedProduct.click();
-        Thread.sleep(3000);
+        Thread.sleep(timeout);
     }
 
     public void addToCart() throws InterruptedException {
@@ -67,12 +65,12 @@ public class WahooFitnessAllProductsPage {
         }
         selectColorSize();
         addToCart.click();
-        Thread.sleep(3000);
+        Thread.sleep(timeout);
     }
 
     public boolean isMiniCartShown() throws InterruptedException{
         boolean miniCartShown = false;
-        Thread.sleep(3000);
+        Thread.sleep(timeout);
         String displayAttribute = miniCartBlock.getAttribute("class");
         if(displayAttribute.contains("active"))
             miniCartShown = true;
@@ -81,12 +79,12 @@ public class WahooFitnessAllProductsPage {
 
     public void closeMiniCart() throws InterruptedException{
         closeMiniCart.click();
-        Thread.sleep(3000);
+        Thread.sleep(timeout);
     }
 
     public void backToAllProductsPage() throws InterruptedException {
         driver.navigate().back();
-        Thread.sleep(3000);
+        Thread.sleep(timeout);
     }
 
     public boolean isAvailable(){
@@ -106,7 +104,7 @@ public class WahooFitnessAllProductsPage {
                 Select selColorSize = new Select(selectColorSizeDropDown);
                 selColorSize.selectByIndex(1);
                 System.out.println("Color or Size selected");
-                Thread.sleep(3000);
+                Thread.sleep(timeout);
             }
         } catch(NoSuchElementException | InterruptedException exp){
             System.out.println("Nothing to select");
@@ -116,13 +114,13 @@ public class WahooFitnessAllProductsPage {
     public void removeProduct() throws InterruptedException{
         removeItem.click();
         if(removeItemPopUp.isDisplayed()){
-            Thread.sleep(3000);
+            Thread.sleep(timeout);
             OKButton.click();
         }
     }
 
     public void checkOut() throws InterruptedException{
         checkOutButton.click();
-        Thread.sleep(3000);
+        Thread.sleep(timeout);
     }
 }
