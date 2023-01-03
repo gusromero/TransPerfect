@@ -9,7 +9,7 @@ public abstract class WahooFitnessPage {
 
     protected final int timeout = 3000;
 
-    WahooFitnessPage (WebDriver driver){
+    WahooFitnessPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

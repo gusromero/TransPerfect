@@ -8,13 +8,14 @@ import org.openqa.selenium.support.How;
 public class WahooFitnessHomePage extends WahooFitnessPage {
     private WebDriver driver;
 
-    @FindBy(how= How.XPATH, using="(//a[text()='All Products'])[1]") private WebElement allProductsLink;
+    @FindBy(how = How.XPATH, using = "(//a[text()='All Products'])[1]")
+    private WebElement allProducts;
 
     WahooFitnessHomePage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickOnAllProducts(){
-        allProductsLink.click();
+    public void clickOnAllProducts() {
+        allProducts.click();
     }
 }
