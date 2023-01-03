@@ -23,7 +23,7 @@ class WahooFitnessTest {
         options.addArguments("start-maximized");
         options.addArguments("enable-automation");
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
         driver.get("https://eu.wahoofitness.com/");
     }
 
@@ -39,7 +39,13 @@ class WahooFitnessTest {
   }
 */
     @org.junit.jupiter.api.Test
-    void test() {
+    void fullTestWahooFitness() {
+        WahooFitnessHomePage homePage = new WahooFitnessHomePage(driver);
+        homePage.clickOnAllProducts();
+        WahooFitnessAllProductsPage allProducts = new WahooFitnessAllProductsPage(driver);
+        allProducts.selectRandomProduct();
+        //wProductsPage = new WahooProductsPage(driver);
+
 
     }
 }
