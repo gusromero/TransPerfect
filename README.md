@@ -4,8 +4,11 @@ Domain to test
 https://eu.wahoofitness.com/ 
 
 Steps:
-1. Load https://eu.wahoofitness.com/ and open product category
-2. Select random product and add it to the cart (Verify that side-bar cart appears with added product).
+1. Load https://eu.wahoofitness.com/ and open product category.
+
+NOTE: "Product category" is not available anymore, the test opens the "All Products" page instead.
+
+3. Select random product and add it to the cart (Verify that side-bar cart appears with added product).
                 - random product means: create product collection and select the one with random index
                 - "Coming soon" and "Out of stock" product are not available for ordering. Find a way to avoid such products and select available ones.
                 - if product has color option, select the first available color from the select-box (eg. https://eu.wahoofitness.com/devices/bike-computers/gps-elemnt-bolt)
