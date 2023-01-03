@@ -45,6 +45,14 @@ class WahooFitnessTest {
         WahooFitnessAllProductsPage allProducts = new WahooFitnessAllProductsPage(driver);
         allProducts.selectRandomProduct();
         allProducts.addToCart();
+        if(allProducts.isMiniCartShown()) {
+            allProducts.closeMiniCart();
+        }
+        allProducts.backToAllProductsPage();
+        allProducts.selectRandomProduct();
+        allProducts.addToCart();
+        allProducts.removeProduct();
+
         //wProductsPage = new WahooProductsPage(driver);
 
 
