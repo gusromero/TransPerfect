@@ -44,6 +44,9 @@ public class WahooFitnessAllProductsPage {
     @FindBy(how=How.XPATH, using="//button[@class='action-primary action-accept']")
     private WebElement OKButton;
 
+    @FindBy(how=How.XPATH, using="//button[@id='top-cart-btn-checkout']")
+    private WebElement checkOutButton;
+
     public WahooFitnessAllProductsPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -116,5 +119,10 @@ public class WahooFitnessAllProductsPage {
             Thread.sleep(3000);
             OKButton.click();
         }
+    }
+
+    public void checkOut() throws InterruptedException{
+        checkOutButton.click();
+        Thread.sleep(3000);
     }
 }

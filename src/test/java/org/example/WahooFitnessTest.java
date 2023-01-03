@@ -52,9 +52,7 @@ class WahooFitnessTest {
         allProducts.selectRandomProduct();
         allProducts.addToCart();
         allProducts.removeProduct();
-
-        //wProductsPage = new WahooProductsPage(driver);
-
+        allProducts.checkOut();
 
     }
 }
